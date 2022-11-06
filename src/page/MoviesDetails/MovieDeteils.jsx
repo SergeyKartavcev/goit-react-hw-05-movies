@@ -1,7 +1,7 @@
 import { getMoviesDeteils } from 'Servis/fetch-api';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import  Container  from 'components/Container/Container';
+import Container from 'components/Container/Container';
 import Heading from 'components/Heading/Heading';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ export default function MuvieDeteils() {
   const { movieId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
+  // console.log(location);
 
   let activeClassName = {
     color: '#2196f3',
@@ -27,6 +27,7 @@ export default function MuvieDeteils() {
     setLoading(true);
     getMoviesDeteils(movieId)
       .then(response => {
+        console.log(response);
         setMovie(response);
       })
       .catch(error => {
@@ -45,24 +46,21 @@ export default function MuvieDeteils() {
         {error && <div>{error}</div>}
         {movie && (
           <div>
-            <img 
-            src={movie.poster_path}
-            alt={movie.title} />
+            <img
+              src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
+              alt={movie.title}
+            />
 
-            <h2>{movie.title}</h2>
+            <h3>{movie.title}</h3>
             <p>({getYear()})</p>
             <p>User Score: {movie.popularity}</p>
             <div>
-              <h2>Overview</h2>
+              <h3>Overview</h3>
               <p>{movie.overview}</p>
-            </div>
-            <div>
-              <h2>Genres</h2>
-              <p>{movie.genres}</p>
             </div>
           </div>
         )}
-         <hr />
+        <hr />
         <div>
           <h2>Additional Information</h2>
           <NavLink
@@ -70,7 +68,7 @@ export default function MuvieDeteils() {
             style={({ isActive }) => (isActive ? activeClassName : undefined)}
             state={location.state}
           >
-            <p >Reviews</p>
+            <p>Reviews</p>
           </NavLink>
 
           <NavLink
@@ -78,7 +76,7 @@ export default function MuvieDeteils() {
             style={({ isActive }) => (isActive ? activeClassName : undefined)}
             state={location.state}
           >
-            <p >Cast</p>
+            <p>Cast</p>
           </NavLink>
           <hr />
           <Outlet />

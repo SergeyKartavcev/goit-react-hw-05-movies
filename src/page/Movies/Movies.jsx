@@ -54,6 +54,7 @@ function Movies  () {
         {error && <div>{error}</div>}
 
         <SearchBar onSearch={onSubmit} />
+       
         {movies && <MovieList movies={movies} prevLocation={location} />}
       </Container>
     </>

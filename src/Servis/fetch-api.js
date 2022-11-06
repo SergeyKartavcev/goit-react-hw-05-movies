@@ -15,15 +15,15 @@ export const getTrendingMuvies = async (page = 1) => {
   const response = await axios.get(
     `${END_POINTS.trending}?api_key=${API_KEY}&page=${page}&language=en-US&include_adult=false`
   );
-  console.log(response, 'tr');
+
   return response.data.results;
 };
 
 export const getSerchQuery = async (query, page = 1) => {
-    const response = await axios.get(
-        `${END_POINTS.querySearch}/?api_key=${API_KEY}&page=${page}&query=${query}&language=en-US&include_adult=false`
-      );
-  console.log(response, 'serch');
+  const response = await axios.get(
+    `${END_POINTS.querySearch}/?api_key=${API_KEY}&page=${page}&query=${query}&language=en-US&include_adult=false`
+  );
+
   return response.data.results;
 };
 
@@ -31,15 +31,15 @@ export const getMoviesDeteils = async id => {
   const response = await axios.get(
     `${END_POINTS.movieDetails}/${id}?api_key=${API_KEY}&language=en-US`
   );
-  console.log(response, 'det');
-  return response.data.results;
+
+  return response.data;
 };
 
 export const getMoviesCredit = async id => {
   const response = await axios.get(
     `/movie/${id}${END_POINTS.movieCredits}?api_key=${API_KEY}&language=en-US`
   );
-  console.log(response, 'cast');
+
   return response.data.cast;
 };
 
@@ -47,7 +47,7 @@ export const getMoviesReviews = async (id, page = 1) => {
   const response = await axios.get(
     `/movie/${id}${END_POINTS.movieReviews}?api_key=${API_KEY}&language=en-US&page=${page}`
   );
-  console.log(response, 'rev');
+
   return response.data.results;
 };
 

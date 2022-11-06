@@ -12,7 +12,7 @@ function Reviews  ()  {
     const fetchReviews = async () => {
       try {
         const res = await getMoviesReviews(movieId);
-        console.log(res);
+        // console.log(res);
         setReviews(res);
       } catch (error) {
         setError(error);
@@ -25,6 +25,7 @@ function Reviews  ()  {
     <>
       {error && <div>{error}</div>}
       <ul>
+        
         {reviews.map(review => {
           // console.log(review);
           return (
