@@ -58,6 +58,14 @@ export default function MuvieDeteils() {
               <h3>Overview</h3>
               <p>{movie.overview}</p>
             </div>
+            <>
+              <h3>Genres</h3>
+              <ul>
+                {movie.genres.map(genre => (
+                  <li key={genre.id}>{genre.name}</li>
+                ))}
+              </ul>
+            </>
           </div>
         )}
         <hr />
