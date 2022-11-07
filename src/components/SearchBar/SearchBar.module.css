@@ -1,0 +1,30 @@
+.search_form{
+background-color: yellowgreen;
+margin: 30px auto 20px;
+  text-align: center;
+  height: 60px;
+  max-width: 1600px;
+  border-radius: 5px;
+  box-shadow: inset rgba(0, 0, 0, 0.541) -3px -3px 8px,
+  inset rgba(255, 253, 253, 0.9) 3px 3px 8px,
+  rgba(0, 0, 0, 0.8) 3px 3px 8px -3px;
+}
+
+.search_input{
+    margin-top: 10px;
+    padding: 8px 20px;
+    border-radius: 8px;
+    outline: #527c82;
+    border-color: transparent;
+}
+
+.search_button{
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: coral;
+    box-shadow: inset rgba(0, 0, 0, 0.541) -3px -3px 8px,
+    inset rgba(255, 253, 253, 0.9) 3px 3px 8px,
+    rgba(0, 0, 0, 0.8) 3px 3px 8px -3px;
+}
