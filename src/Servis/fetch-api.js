@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_KEY = '69cbf44b099c2de25af69dec6b9fd60c';
-axios.defaults.baseURL = 'https://api.themoviedb.org/3';
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
 const END_POINTS = {
   trending: '/trending/movie/week', //список самых популярных фильмов на сегодня для создания коллекции на главной странице.
