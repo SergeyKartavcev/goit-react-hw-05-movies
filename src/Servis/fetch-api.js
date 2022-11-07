@@ -21,7 +21,7 @@ export const getTrendingMuvies = async (page = 1) => {
 
 export const getSerchQuery = async (query, page = 1) => {
   const response = await axios.get(
-    `${END_POINTS.querySearch}/?api_key=${API_KEY}&page=${page}&query=${query}&language=en-US&include_adult=false/`
+    `${END_POINTS.querySearch}?api_key=${API_KEY}&page=${page}&query=${query}&language=en-US&include_adult=false`
   );
 
   return response.data.results;
