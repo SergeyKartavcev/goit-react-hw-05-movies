@@ -12,7 +12,6 @@ function Reviews  ()  {
     const fetchReviews = async () => {
       try {
         const res = await getMoviesReviews(movieId);
-        // console.log(res);
         setReviews(res);
       } catch (error) {
         setError(error);
@@ -27,7 +26,7 @@ function Reviews  ()  {
       <ul>
         
         {reviews.map(review => {
-          // console.log(review);
+         
           return (
             <li key={review.id}>
               <p>Author: {review.author}</p>
@@ -36,7 +35,7 @@ function Reviews  ()  {
           );
         })}
       </ul>
-      {/* {reviews} */}
+     
     </>
   );
 };

@@ -15,7 +15,7 @@ export default function MuvieDeteils() {
   const { movieId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
-  // console.log(location);
+ 
 
   let activeClassName = {
     color: '#2196f3',
@@ -72,17 +72,15 @@ export default function MuvieDeteils() {
         <div>
           <h2>Additional Information</h2>
           <NavLink
-            to={`/movies/${movieId}/reviews`}
+            to={`reviews`}
             style={({ isActive }) => (isActive ? activeClassName : undefined)}
-            state={location.state}
           >
             <p>Reviews</p>
           </NavLink>
 
           <NavLink
-            to={`/movies/${movieId}/cast`}
+            to={`cast`}
             style={({ isActive }) => (isActive ? activeClassName : undefined)}
-            state={location.state}
           >
             <p>Cast</p>
           </NavLink>

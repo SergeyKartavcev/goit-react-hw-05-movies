@@ -49,7 +49,7 @@ function Movies  () {
     <>
       <Container>
         <Heading text={'Movie Search'} />
-        {/* <h1>Movies search</h1> */}
+   
         {loading && 'Loading ...'}
         {error && <div>{error}</div>}
 

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import s from './MovieList.module.css'
+import s from './MovieList.module.css';
+
 export default function MovieList  ({ movies, prevLocation })  {
   return (
     <>
@@ -8,7 +9,7 @@ export default function MovieList  ({ movies, prevLocation })  {
               <li className={s.movie_item} key={movie.id} >
                 <Link
                   to={{
-                    pathname: `movies/${movie.id}`,
+                    pathname: `/movies/${movie.id}`,
                     state: { from: prevLocation },
                   }}
             
