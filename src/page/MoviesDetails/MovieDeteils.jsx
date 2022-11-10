@@ -1,9 +1,10 @@
 import { getMoviesDeteils } from 'Servis/fetch-api';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense  } from 'react';
 import { useParams } from 'react-router-dom';
 import Container from 'components/Container/Container';
 import Heading from 'components/Heading/Heading';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import s from './MovieDetails.module.css'
 
 export default function MuvieDeteils() {
   const [movie, setMovie] = useState(null);
@@ -40,32 +41,33 @@ export default function MuvieDeteils() {
   return (
     <>
       <Container>
-        <button onClick={handleClick}>Go back</button>
-        {movie && <Heading text={movie.title} />}
+        <button className={s.button_back} onClick={handleClick}>Go back</button>
+        {movie && <Heading  text={movie.title} />}
         {loading && 'Loading...'}
         {error && <div>{error}</div>}
         {movie && (
-          <div>
+          <div className={s.movies}>
             <img
               src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
               alt={movie.title}
             />
-
-            <h3>{movie.title}</h3>
+<div className={s.about}>
+            <h3 className={s.title}>{movie.title}</h3>
             <p>({getYear()})</p>
-            <p>User Score: {movie.popularity}</p>
-            <div>
-              <h3>Overview</h3>
-              <p>{movie.overview}</p>
+            <p className={s.score}>User Score: {movie.popularity}</p>
+            <div className={s.overview} >
+              <h3 className={s.title}>Overview</h3>
+              <p className={s.description}>{movie.overview}</p>
             </div>
             <>
-              <h3>Genres</h3>
-              <ul>
+              <h3 className={s.title}>Genres</h3>
+              <ul className={s.genre}>
                 {movie.genres.map(genre => (
-                  <li key={genre.id}>{genre.name}</li>
+                  <li className={s.genre_item} key={genre.id}>{genre.name}</li>
                 ))}
               </ul>
             </>
+          </div>
           </div>
         )}
         <hr />
@@ -85,7 +87,9 @@ export default function MuvieDeteils() {
             <p>Cast</p>
           </NavLink>
           <hr />
+          <Suspense>
           <Outlet />
+          </Suspense>
         </div>
       </Container>
     </>
